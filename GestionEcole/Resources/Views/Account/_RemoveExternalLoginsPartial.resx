@@ -117,16 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="legend" xml:space="preserve">
-    <value>Log in using another service</value>
-  </data>
-  <data name="messageInfo" xml:space="preserve">
-    <value>Follow this link to get help</value>
+  <data name="h3" xml:space="preserve">
+    <value>Registered external logins</value>
   </data>
   <data name="SuiteTitle" xml:space="preserve">
-    <value>account</value>
+    <value>credential from your account</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Log in using your</value>
+    <value>Remove this</value>
   </data>
 </root>

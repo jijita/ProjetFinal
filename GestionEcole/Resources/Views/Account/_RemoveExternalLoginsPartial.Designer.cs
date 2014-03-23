@@ -22,14 +22,14 @@ namespace GestionEcole.Resources.Views.Account {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class _ExternalLoginsListPartial {
+    public class _RemoveExternalLoginsPartial {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _ExternalLoginsListPartial() {
+        internal _RemoveExternalLoginsPartial() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GestionEcole.Resources.Views.Account {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GestionEcole.Resources.Views.Account._ExternalLoginsListPartial", typeof(_ExternalLoginsListPartial).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GestionEcole.Resources.Views.Account._RemoveExternalLoginsPartial", typeof(_RemoveExternalLoginsPartial).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,25 +61,16 @@ namespace GestionEcole.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log in using another service.
+        ///   Looks up a localized string similar to Registered external logins.
         /// </summary>
-        public static string legend {
+        public static string h3 {
             get {
-                return ResourceManager.GetString("legend", resourceCulture);
+                return ResourceManager.GetString("h3", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Follow this link to get help.
-        /// </summary>
-        public static string messageInfo {
-            get {
-                return ResourceManager.GetString("messageInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to account.
+        ///   Looks up a localized string similar to credential from your account.
         /// </summary>
         public static string SuiteTitle {
             get {
@@ -88,7 +79,7 @@ namespace GestionEcole.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log in using your.
+        ///   Looks up a localized string similar to Remove this.
         /// </summary>
         public static string Title {
             get {

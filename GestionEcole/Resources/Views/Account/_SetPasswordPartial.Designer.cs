@@ -22,14 +22,14 @@ namespace GestionEcole.Resources.Views.Account {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class _ExternalLoginsListPartial {
+    public class _SetPasswordPartial {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _ExternalLoginsListPartial() {
+        internal _SetPasswordPartial() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GestionEcole.Resources.Views.Account {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GestionEcole.Resources.Views.Account._ExternalLoginsListPartial", typeof(_ExternalLoginsListPartial).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GestionEcole.Resources.Views.Account._SetPasswordPartial", typeof(_SetPasswordPartial).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace GestionEcole.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log in using another service.
+        ///   Looks up a localized string similar to Password Form.
         /// </summary>
         public static string legend {
             get {
@@ -70,29 +70,20 @@ namespace GestionEcole.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Follow this link to get help.
+        ///   Looks up a localized string similar to You do not have a local password for this site. Add a local password so you can log in without an external login..
         /// </summary>
-        public static string messageInfo {
+        public static string p {
             get {
-                return ResourceManager.GetString("messageInfo", resourceCulture);
+                return ResourceManager.GetString("p", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to account.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
-        public static string SuiteTitle {
+        public static string title {
             get {
-                return ResourceManager.GetString("SuiteTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Log in using your.
-        /// </summary>
-        public static string Title {
-            get {
-                return ResourceManager.GetString("Title", resourceCulture);
+                return ResourceManager.GetString("title", resourceCulture);
             }
         }
     }
