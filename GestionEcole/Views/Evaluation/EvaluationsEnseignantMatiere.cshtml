@@ -1,0 +1,68 @@
+﻿@model IEnumerable<GestionEcole.Models.Evaluation>
+
+@{
+    ViewBag.Title = "EvaluationsEnseignantMatiere";
+}
+
+<h2>EvaluationsEnseignantMatiere</h2>
+
+<div class="col-xs-8 col-xs-offset-2">
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Matiere.Titre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeEvaluation.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeEvaluation.Ponderation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Note)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Etudiant.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Etudiant.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Matiere.Titre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeEvaluation.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeEvaluation.Ponderation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Note)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-default" href="/Evaluation/Edit?etudiantId=@item.EtudiantId&matiereId=@item.MatiereId&enseignantId=@item.EnseignantId"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a class="btn btn-default" href="/Evaluation/Details?etudiantId=@item.EtudiantId&matiereId=@item.MatiereId&enseignantId=@item.EnseignantId"><span class="glyphicon glyphicon-list"></span></a>
+                            <a class="btn btn-default" href="/Evaluation/Delete?etudiantId=@item.EtudiantId&matiereId=@item.MatiereId&enseignantId=@item.EnseignantId"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

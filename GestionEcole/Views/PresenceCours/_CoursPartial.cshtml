@@ -1,0 +1,13 @@
+﻿@*@model IEnumerable<SelectListItem>*@
+
+@{
+    GestionEcole.Models.Etudiant etudiant = ViewBag.Etudiant;
+
+    IEnumerable<SelectListItem> lesCours = ViewBag.LesCours;
+   
+    IEnumerable<SelectListItem> matieres = ViewBag.matieres;
+}
+<div class="editor-label">
+    @Html.Label("Choix de l'horaire du cours")
+</div>
+@Html.DropDownList("CoursId", lesCours, new {@class ="form-control" })

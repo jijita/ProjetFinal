@@ -1,0 +1,89 @@
+﻿@model IEnumerable<GestionEcole.Models.PresenceCours>
+
+@{
+    ViewBag.Title = "Index";
+    int CombienDePage = ViewBag.CombienDePage;
+}
+
+<h2>Les presences aux cours</h2>
+<p>
+    <a class="btn btn-default" href="/PresenceCours/Create"><span class="glyphicon glyphicon-plus"></span></a>
+</p>
+<div class="col-xs-10 col-xs-offset-1">
+    <table class="table table-striped table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Etudiant.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Etudiant.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours.DateDebut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours.DateFin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours.Matiere.Titre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Absence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motif)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Etudiant.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Etudiant.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours.DateDebut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours.DateFin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours.Matiere.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Absence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Motif)
+                </td>
+                <td>
+                
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="/PresenceCours/Edit?idEtudiant=@item.EtudiantId&idCours=@item.CoursId"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="/PresenceCours/Details?idEtudiant=@item.EtudiantId&idCours=@item.CoursId"><span class="glyphicon glyphicon-list"></span></a>
+                        <a class="btn btn-default" href="/PresenceCours/Delete?idEtudiant=@item.EtudiantId&idCours=@item.CoursId"><span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="text-center bg-info">
+        @for (int i = 0; i <= CombienDePage; i++)
+        {
+            @Html.ActionLink("P" + i.ToString(), "Index", new { numPage = i }, new { @class = "btn btn-default" })
+        }
+    </div>
+</div>

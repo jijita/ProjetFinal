@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "DetailsRole";
+
+    var listeUsers = ViewBag.AllUsers;
+    var leRole = ViewBag.Role;
+}
+
+<h2>Role: @leRole</h2>
+
+<div class="col-xs-8 col-xs-offset-2">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Utilisateurs</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody id="usersTableDiv"></tbody>
+    </table>
+</div>
+
+<div class="col-xs-2">
+    <fieldset>
+        <legend>Ajouter un @leRole</legend>
+
+        <form id="ajouterUserAuRoleForm" method="post" action="/Administration/AjouterUserAuRole">
+            @Html.Hidden("leRole", leRole as string)
+
+            <div class="input-group">
+                @Html.DropDownList("utilisateur", new SelectList(listeUsers), new { @class = "form-control" })
+
+                <span class="input-group-btn">
+                    <button id="addBtn" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+                </span>
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+<div class="col-xs-12">
+    <a class="btn btn-danger" href="/Administration"><span class="glyphicon glyphicon-arrow-left"></span></a>
+</div>
+
+
+<form id="usersInRoleForm" method="post" action="/Administration/UsersInRole">
+    <input type="hidden" id="role" name="role" value=@leRole />
+</form>
+
+<form id="deleteUserFromRoleForm" method="post" action="/Administration/DeleteUserFromRole">
+    <input type="hidden" id="leUser" name="leUser" value="" />
+    <input type="hidden" id="leRole" name="leRole" value=@leRole />
+</form>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var usersInRoleForm = $("#usersInRoleForm");
+
+            $("#addBtn").on("click", function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: $("#ajouterUserAuRoleForm").attr("action"),
+                    type: $("#ajouterUserAuRoleForm").attr("method"),
+                    data: $("#ajouterUserAuRoleForm").serialize()
+                }).always(function (partial) {
+                    $("#usersTableDiv").html(partial);
+
+                    $("#usersTableDiv button").on("click", handleDelete)
+                });
+            });
+
+            $.ajax({
+                url: usersInRoleForm.attr("action"),
+                type: usersInRoleForm.attr("method"),
+                data: usersInRoleForm.serialize()
+            }).always(function (partial) {
+                $("#usersTableDiv").html(partial);
+
+                $("#usersTableDiv button").on("click", handleDelete)
+            });
+        });
+
+        function initRendered(partial) {
+            $("#usersTableDiv").html(partial);
+
+            $("#usersTable button").on("click", handleDelete)
+        }
+
+        function handleDelete(e) {
+            $("#leUser").val($(e.currentTarget).attr("data-user"));
+            var deleteUserFromRoleForm = $("#deleteUserFromRoleForm");
+
+            $.ajax({
+                url: deleteUserFromRoleForm.attr("action"),
+                type: deleteUserFromRoleForm.attr("method"),
+                data: deleteUserFromRoleForm.serialize()
+            }).always(function (partial) {
+                $("#usersTableDiv").html(partial);
+                
+                $("#usersTableDiv button").on("click", handleDelete)
+            })
+        }
+    </script>
+}

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GestionEcole.Models.Matiere>
+
+@{
+    ViewBag.Title = "Les Matieres";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a class="btn btn-default" href="/Matiere/Create"><span class="glyphicon glyphicon-plus"></span></a>
+</p>
+
+<div class="col-xs-8 col-xs-offset-2">
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titre)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titre)
+                    </td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-default" href="/Matiere/Edit?id=@item.MatiereId"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a class="btn btn-default" href="/Matiere/Details?id=@item.MatiereId"><span class="glyphicon glyphicon-list"></span></a>
+                            <a class="btn btn-default" href="/Matiere/Delete?id=@item.MatiereId"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

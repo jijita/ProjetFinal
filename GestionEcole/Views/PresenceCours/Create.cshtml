@@ -1,0 +1,74 @@
+﻿@model GestionEcole.Models.PresenceCours
+
+@{
+    ViewBag.Title = "Create";
+
+    //IEnumerable<SelectListItem> LesEtudiants = ViewBag.Etudians;
+    //IEnumerable<SelectListItem> LesCours = ViewBag.Cours;
+
+    IEnumerable<SelectListItem> etudiants = ViewBag.Etudiants;
+    IEnumerable<SelectListItem> dateCours = ViewBag.Cours;
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="col-xs-8 col-xs-offset-2">
+
+        <fieldset>
+
+            <legend>PresenceCours</legend>
+
+            <div class="editor-label">
+                Etudiant
+            </div>
+
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.EtudiantId, etudiants, new { @class = "form-control" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Cours.DateDebut)
+            </div>
+
+            <div>
+                @Html.DropDownListFor(model => model.CoursId, dateCours, new { @class = "form-control" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Absence)
+            </div>
+
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.Absence, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Absence)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Motif)
+            </div>
+
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Motif, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Motif)
+            </div>
+
+        </fieldset>
+        <div class="form-group col-xs-8 col-xs-offset-2">
+            <button class="btn btn-lg btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+       </div>
+
+    </div>
+}
+
+<div class="col-xs-12">
+    <a class="btn btn-danger" href="/PresenceCours"><span class="glyphicon glyphicon-arrow-left"></span></a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

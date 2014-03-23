@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ba403f614bc4d07a46d22342497faff" Name="DiagramEcole" ZoomLevel="81" >
+        <EntityTypeShape EntityType="Ecole.Personne" Width="1.5" PointX="7" PointY="1" />
+        <EntityTypeShape EntityType="Ecole.Etudiant" Width="1.5" PointX="4" PointY="1.25" />
+        <EntityTypeShape EntityType="Ecole.Enseignant" Width="1.5" PointX="9" PointY="4.5" />
+        <InheritanceConnector EntityType="Ecole.Enseignant" />
+        <InheritanceConnector EntityType="Ecole.Etudiant" />
+        <EntityTypeShape EntityType="Ecole.PresenceCours" Width="1.5" PointX="1" PointY="1.25" />
+        <AssociationConnector Association="Ecole.EtudiantPresenceCours" />
+        <EntityTypeShape EntityType="Ecole.Cours" Width="1.5" PointX="1.125" PointY="4" />
+        <AssociationConnector Association="Ecole.CoursPresenceCours" />
+        <EntityTypeShape EntityType="Ecole.Matiere" Width="1.5" PointX="1.25" PointY="6.75" />
+        <AssociationConnector Association="Ecole.MatiereCours" />
+        <EntityTypeShape EntityType="Ecole.TypeEvaluation" Width="1.5" PointX="9.875" PointY="6.5" />
+        <EntityTypeShape EntityType="Ecole.Evaluation" Width="1.5" PointX="5.25" PointY="5.5" />
+        <AssociationConnector Association="Ecole.TypeEvaluationEvaluation" />
+        <AssociationConnector Association="Ecole.MatiereEvaluation" />
+        <AssociationConnector Association="Ecole.EnseignantEvaluation" />
+        <AssociationConnector Association="Ecole.EtudiantEvaluation" />
+        <AssociationConnector Association="Ecole.EnseignantCours" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

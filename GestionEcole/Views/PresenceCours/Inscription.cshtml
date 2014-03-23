@@ -1,0 +1,94 @@
+﻿@model GestionEcole.Models.PresenceCours
+
+@{
+    ViewBag.Title = "Inscription";
+
+
+    TempData["etudiant"] = ViewBag.Etudiant;
+    TempData["matieres"] = ViewBag.matieres;
+    IEnumerable<SelectListItem> matieres = ViewBag.matieres;
+    var etudiant = ViewBag.Etudiant;
+}
+
+<h2>Inscription</h2>
+<div class="col-xs-8 col-xs-offset-2">
+
+    <div class="form-group col-xs-8 col-xs-offset-2">
+        @Html.LabelFor(model => model.Cours.Matiere, new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.Cours.MatiereId, matieres, new { @class = "form-control" })
+
+    </div>
+
+    <div class="col-xs-8 col-xs-offset-2">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                <div>
+                    @Html.Hidden("EtudiantId", Model.EtudiantId)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Etudiant, new { @class = "control-label" })
+                    @Html.TextBox("unEtudiant", Model.Etudiant.Nom + " " + Model.Etudiant.Prenom, new { @class = "form-control", disabled="disabled" })
+                </div>
+
+                <div id="coursParMat">
+                </div>
+
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+            </div>
+        }
+    </div>
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to Etudiant", "Details", "Etudiant", new { idEtudiant = etudiant })
+</div>
+
+<form id="formulaire" method="post" action="/PresenceCours/SelectionnerMatiere">
+    <input type="hidden" id="idSelect" name="idSelect" value="" />
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+
+    <script type="text/javascript">
+        $(function () {
+
+
+            var selectMatId = $("#Cours_MatiereId");
+
+            selectMatId.change(doSomeAjax);
+        })
+
+        function doSomeAjax(e) {
+
+            var matiereID = $("#Cours_MatiereId").val();
+
+            var formulaire = $("#formulaire");
+            $("#idSelect").val(matiereID);
+
+            $.ajax({
+                url: formulaire.attr("action"),
+                type: formulaire.attr("method"),
+                data: formulaire.serialize()
+            }).done(function (partialView) {
+
+                $("#coursParMat").html(partialView);
+            })
+
+
+        }
+    </script>
+}

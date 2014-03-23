@@ -1,0 +1,43 @@
+﻿@model GestionEcole.Models.TypeEvaluation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-xs-8 col-xs-offset-2">
+        <fieldset>
+            <legend>TypeEvaluation</legend>
+
+            <div class="form-group col-xs-8 col-xs-offset-2">
+                @Html.LabelFor(model => model.Type, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Type, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Type)
+            </div>
+
+            <div class="form-group col-xs-8 col-xs-offset-2">
+                @Html.LabelFor(model => model.Ponderation, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Ponderation, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Ponderation)
+            </div>
+        </fieldset>
+
+        <div class="form-group col-xs-8 col-xs-offset-2">
+            <button class="btn btn-lg btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+        </div>
+    </div>
+}
+
+<div class="col-xs-12">
+    <a class="btn btn-danger" href="/TypeEvaluation"><span class="glyphicon glyphicon-arrow-left"></span></a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

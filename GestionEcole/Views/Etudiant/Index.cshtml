@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GestionEcole.Models.Etudiant>
+
+@{
+    ViewBag.Title = "Les Etudiants";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a class="btn btn-default" href="/Etudiant/Create"><span class="glyphicon glyphicon-plus"></span></a>
+</p>
+
+<div class="col-xs-8 col-xs-offset-2">
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-default" href="/Etudiant/Edit?id=@item.Id"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a class="btn btn-default" href="/Etudiant/Details?id=@item.Id"><span class="glyphicon glyphicon-list"></span></a>
+                            <a class="btn btn-default" href="/Etudiant/Delete?id=@item.Id"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

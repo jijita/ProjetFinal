@@ -1,0 +1,48 @@
+﻿@model GestionEcole.Models.Evaluation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>
+    @ViewBag.Title
+    <a class="btn btn-default" href="/Evaluation/Edit?etudiantId=@Model.EtudiantId&matiereId=@Model.MatiereId&enseignantId=@Model.EnseignantId"><span class="glyphicon glyphicon-pencil"></span></a>
+</h2>
+
+<div class="col-xs-8 col-xs-offset-2">
+    <div class="list-group">
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Etudiant.Nom)</h4>
+            <p class="list-group-item-text">@Html.DisplayFor(model => model.Etudiant.Nom)</p>
+        </div>
+
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Etudiant.Prenom)</h4>
+            <p class="list-group-item-text">@Html.DisplayFor(model => model.Etudiant.Prenom)</p>
+        </div>
+
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Matiere.Titre)</h4>
+            <p class="list-group-item-text">@Html.DisplayFor(model => model.Matiere.Titre)</p>
+        </div>
+
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.TypeEvaluation.Type)</h4>
+            <p class="list-group-item-text">@Html.DisplayFor(model => model.TypeEvaluation.Type)</p>
+        </div>
+
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.TypeEvaluation.Ponderation)</h4>
+            <p class="list-group-item-text">@Html.DisplayFor(model => model.TypeEvaluation.Ponderation)</p>
+        </div>
+
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading">@Html.DisplayNameFor(model => model.Note)</h4>
+            <p class="list-group-item-text">@Html.DisplayFor(model => model.Note)</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    <a class="btn btn-danger" href="/Evaluation"><span class="glyphicon glyphicon-arrow-left"></span></a>
+</div>

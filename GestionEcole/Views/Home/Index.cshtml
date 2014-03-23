@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-xs-8 text-justify text-warning">
+                    <h1 class="text-danger"> Presentation de l'ecole</h1>
+                    <h3>Choisir InforTech. Pourquoi?</h3>
+                    <p class="bg-warning">
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker
+                    </p>
+                </div>
+                <div class="col-xs-4">
+                <div class=" col-xs-8 col-xs-offset-2">
+                    <ul class=" nav nav-tabs nav-stacked bg-info text-center" id="menu">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Enseignants", "Index", "Enseignant")</li>
+                    <li>@Html.ActionLink("Etudiants", "Index", "Etudiant")</li>
+                    <li>@Html.ActionLink("Matieres", "Index", "Matiere")</li>
+                    <li>@Html.ActionLink("Cours", "Index", "Cours")</li>
+                    <li>@Html.ActionLink("Administration", "Index", "Administration")</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </section>
+}
+
+<div class="row">
+    <div class="col-xs-8 text-justify text-warning">
+
+        <h3>Les objectifs de InforTech</h3>
+
+        <p class="bg-warning">
+            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker
+        </p>
+
+    </div>
+
+    <div class="col-xs-4 text-justify text-warning espace">
+        <div class="form-group">
+            <img src="~/Images/ecole.gif" class="col-xs-12 img-responsive" />
+        </div>
+        <div>
+            &nbsp;
+        </div>
+        <div class="form-group">
+
+            <a href="https://www.facebook.com/AremTechnology?fref=ts"> <img src="~/Images/images.jpg" class="center-block " /> </a>
+
+        </div>
+
+    </div>
+</div>

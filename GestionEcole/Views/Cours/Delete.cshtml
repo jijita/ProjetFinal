@@ -1,0 +1,49 @@
+﻿@model GestionEcole.Models.Cours
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Cours</legend>
+
+    <ul class="list-group col-xs-8 col-xs-offset-2">
+        <li class="list-group-item">
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.DateDebut)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.DateDebut)
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.DateFin)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.DateFin)
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Description)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Description)
+            </div>
+        </li>
+    </ul>
+</fieldset>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <div class="btn-group">
+        <input type="submit" value="Delete" class="btn btn-success" />
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-warning" })
+    </div>
+}

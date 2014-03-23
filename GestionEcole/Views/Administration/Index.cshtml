@@ -1,0 +1,36 @@
+﻿@{
+    int CombienDePage = ViewBag.CombienDePage;
+}
+
+<h2>Les Roles</h2>
+
+<div class="col-xs-8 col-xs-offset-2">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Roles</th>
+                <th></th>
+                <th><a class="btn btn-default" href="/Administration/AddRole"><span class="glyphicon glyphicon-plus"></span></a></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>
+                        <span class="">@role</span>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-default" href="/Administration/DetailsRole?role=@role"><span class="glyphicon glyphicon-list"></span></a>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-default" href="/Administration/DeleteRole?role=@role"><span class="glyphicon glyphicon-minus"></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>        
+    </table>
+</div>

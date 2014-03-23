@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Ecole.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="EcoleTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Ecole" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EcoleContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Personnes" EntityType="Ecole.Personne" />
+          <EntitySet Name="PresenceCours" EntityType="Ecole.PresenceCours" />
+          <AssociationSet Name="EtudiantPresenceCours" Association="Ecole.EtudiantPresenceCours">
+            <End Role="Etudiant" EntitySet="Personnes" />
+            <End Role="PresenceCours" EntitySet="PresenceCours" />
+          </AssociationSet>
+          <EntitySet Name="Cours" EntityType="Ecole.Cours" />
+          <AssociationSet Name="CoursPresenceCours" Association="Ecole.CoursPresenceCours">
+            <End Role="Cours" EntitySet="Cours" />
+            <End Role="PresenceCours" EntitySet="PresenceCours" />
+          </AssociationSet>
+          <EntitySet Name="Matieres" EntityType="Ecole.Matiere" />
+          <AssociationSet Name="MatiereCours" Association="Ecole.MatiereCours">
+            <End Role="Matiere" EntitySet="Matieres" />
+            <End Role="Cours" EntitySet="Cours" />
+          </AssociationSet>
+          <EntitySet Name="TypeEvaluations" EntityType="Ecole.TypeEvaluation" />
+          <EntitySet Name="Evaluations" EntityType="Ecole.Evaluation" />
+          <AssociationSet Name="TypeEvaluationEvaluation" Association="Ecole.TypeEvaluationEvaluation">
+            <End Role="TypeEvaluation" EntitySet="TypeEvaluations" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <AssociationSet Name="MatiereEvaluation" Association="Ecole.MatiereEvaluation">
+            <End Role="Matiere" EntitySet="Matieres" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <AssociationSet Name="EnseignantEvaluation" Association="Ecole.EnseignantEvaluation">
+            <End Role="Enseignant" EntitySet="Personnes" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <AssociationSet Name="EtudiantEvaluation" Association="Ecole.EtudiantEvaluation">
+            <End Role="Etudiant" EntitySet="Personnes" />
+            <End Role="Evaluation" EntitySet="Evaluations" />
+          </AssociationSet>
+          <AssociationSet Name="EnseignantCours" Association="Ecole.EnseignantCours">
+            <End Role="Enseignant" EntitySet="Personnes" />
+            <End Role="Cours" EntitySet="Cours" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Personne" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" />
+          <Property Name="Prenom" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" />
+          <Property Name="Adresse" Nullable="false" Type="String" />
+          <Property Name="Photo" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Etudiant" BaseType="Ecole.Personne">
+          <NavigationProperty Name="PresenceCours" Relationship="Ecole.EtudiantPresenceCours" FromRole="Etudiant" ToRole="PresenceCours" />
+          <NavigationProperty Name="Evaluations" Relationship="Ecole.EtudiantEvaluation" FromRole="Etudiant" ToRole="Evaluation" />
+        </EntityType>
+        <EntityType Name="Enseignant" BaseType="Ecole.Personne">
+          <NavigationProperty Name="Evaluations" Relationship="Ecole.EnseignantEvaluation" FromRole="Enseignant" ToRole="Evaluation" />
+          <NavigationProperty Name="Cours" Relationship="Ecole.EnseignantCours" FromRole="Enseignant" ToRole="Cours" />
+        </EntityType>
+        <EntityType Name="PresenceCours">
+          <Key>
+            <PropertyRef Name="EtudiantId" />
+            <PropertyRef Name="CoursId" />
+          </Key>
+          <Property Name="EtudiantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoursId" Type="Int32" Nullable="false" />
+          <Property Name="Motif" Type="String" Nullable="false" />
+          <Property Name="Absence" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Etudiant" Relationship="Ecole.EtudiantPresenceCours" FromRole="PresenceCours" ToRole="Etudiant" />
+          <NavigationProperty Name="Cours" Relationship="Ecole.CoursPresenceCours" FromRole="PresenceCours" ToRole="Cours" />
+        </EntityType>
+        <Association Name="EtudiantPresenceCours">
+          <End Type="Ecole.Etudiant" Role="Etudiant" Multiplicity="1" />
+          <End Type="Ecole.PresenceCours" Role="PresenceCours" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="CoursId" />
+          </Key>
+          <Property Name="CoursId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDebut" Type="DateTime" Nullable="false" />
+          <Property Name="DateFin" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="PresenceCours" Relationship="Ecole.CoursPresenceCours" FromRole="Cours" ToRole="PresenceCours" />
+          <NavigationProperty Name="Matiere" Relationship="Ecole.MatiereCours" FromRole="Cours" ToRole="Matiere" />
+          <NavigationProperty Name="Enseignant" Relationship="Ecole.EnseignantCours" FromRole="Cours" ToRole="Enseignant" />
+        </EntityType>
+        <Association Name="CoursPresenceCours">
+          <End Type="Ecole.Cours" Role="Cours" Multiplicity="1" />
+          <End Type="Ecole.PresenceCours" Role="PresenceCours" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Matiere">
+          <Key>
+            <PropertyRef Name="MatiereId" />
+          </Key>
+          <Property Name="MatiereId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titre" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cours" Relationship="Ecole.MatiereCours" FromRole="Matiere" ToRole="Cours" />
+          <NavigationProperty Name="Evaluations" Relationship="Ecole.MatiereEvaluation" FromRole="Matiere" ToRole="Evaluation" />
+        </EntityType>
+        <Association Name="MatiereCours">
+          <End Type="Ecole.Matiere" Role="Matiere" Multiplicity="1" />
+          <End Type="Ecole.Cours" Role="Cours" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TypeEvaluation">
+          <Key>
+            <PropertyRef Name="TypeEvaluationId" />
+          </Key>
+          <Property Name="TypeEvaluationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Ponderation" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Evaluations" Relationship="Ecole.TypeEvaluationEvaluation" FromRole="TypeEvaluation" ToRole="Evaluation" />
+        </EntityType>
+        <EntityType Name="Evaluation">
+          <Key>
+            <PropertyRef Name="EtudiantId" />
+            <PropertyRef Name="EnseignantId" />
+            <PropertyRef Name="MatiereId" />
+            <PropertyRef Name="TypeEvaluationId" />
+          </Key>
+          <Property Name="EtudiantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+          <Property Name="TypeEvaluationId" Type="Int32" Nullable="false" />
+          <Property Name="EnseignantId" Type="Int32" Nullable="false" />
+          <Property Name="MatiereId" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="TypeEvaluation" Relationship="Ecole.TypeEvaluationEvaluation" FromRole="Evaluation" ToRole="TypeEvaluation" />
+          <NavigationProperty Name="Matiere" Relationship="Ecole.MatiereEvaluation" FromRole="Evaluation" ToRole="Matiere" />
+          <NavigationProperty Name="Enseignant" Relationship="Ecole.EnseignantEvaluation" FromRole="Evaluation" ToRole="Enseignant" />
+          <NavigationProperty Name="Etudiant" Relationship="Ecole.EtudiantEvaluation" FromRole="Evaluation" ToRole="Etudiant" />
+        </EntityType>
+        <Association Name="TypeEvaluationEvaluation">
+          <End Type="Ecole.TypeEvaluation" Role="TypeEvaluation" Multiplicity="1" />
+          <End Type="Ecole.Evaluation" Role="Evaluation" Multiplicity="*" />
+        </Association>
+        <Association Name="MatiereEvaluation">
+          <End Type="Ecole.Matiere" Role="Matiere" Multiplicity="1" />
+          <End Type="Ecole.Evaluation" Role="Evaluation" Multiplicity="*" />
+        </Association>
+        <Association Name="EnseignantEvaluation">
+          <End Type="Ecole.Enseignant" Role="Enseignant" Multiplicity="1" />
+          <End Type="Ecole.Evaluation" Role="Evaluation" Multiplicity="*" />
+        </Association>
+        <Association Name="EtudiantEvaluation">
+          <End Type="Ecole.Etudiant" Role="Etudiant" Multiplicity="1" />
+          <End Type="Ecole.Evaluation" Role="Evaluation" Multiplicity="*" />
+        </Association>
+        <Association Name="EnseignantCours">
+          <End Type="Ecole.Enseignant" Role="Enseignant" Multiplicity="1" />
+          <End Type="Ecole.Cours" Role="Cours" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Ecole" />
+        <Alias Key="Target" Value="Ecole.Store" />
+        <EntityContainerMapping CdmEntityContainer="EcoleContainer" StorageEntityContainer="EcoleTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

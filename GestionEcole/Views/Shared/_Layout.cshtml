@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="container" class="container">
+        <img src="~/Images/Banner1.jpg" class="col-xs-12 img-responsive" />
+
+        <div class="col-xs-12" id="header">
+
+            <div class="row">
+                <section id="login"></section>
+            </div>
+
+            <nav class="navbar navbar-collapse" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header navbar-btn">
+                        <a class="btn btn-lg btn-primary" href="/Home"><span class="glyphicon glyphicon-home"></span></a>
+                    </div>
+
+                    <div class="col-xs-offset-2">
+                        <ul class="nav navbar-nav" id="menu">
+                            <li>@Html.ActionLink("Enseignants", "Index", "Enseignant", new { }, new { @class = "text-danger btn-lg" })</li>
+                            <li>@Html.ActionLink("Etudiants", "Index", "Etudiant", new { }, new { @class = "text-danger btn-lg" })</li>
+                            <li>@Html.ActionLink("Matieres", "Index", "Matiere", new { }, new { @class = "text-danger btn-lg" })</li>
+                            <li>@Html.ActionLink("Cours", "Index", "Cours", new { }, new { @class = "text-danger btn-lg" })</li>
+                            <li>@Html.ActionLink("Administration", "Index", "Administration", new { }, new { @class = "text-danger btn-lg" })</li>
+                        </ul>
+                    </div>
+
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </nav>
+        </div>
+
+        <div class="col-xs-12" id="body">
+            @RenderSection("featured", required: false)
+
+            <section>
+                @RenderBody()
+            </section>
+        </div>
+
+        <div class="col-xs-12 navbar-static-top">
+            <div id="footer" class="col-xs-12 text-center  bg-info">
+                <p>&copy; @DateTime.Now.Year - Gestion d'une Ecole</p>
+
+                <h4>Par: Jihene & Cedric</h4>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)    
+</body>
+</html>

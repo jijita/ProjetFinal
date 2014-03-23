@@ -1,0 +1,56 @@
+﻿@model GestionEcole.Models.Cours
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Cours</legend>
+        <div class="form-group col-xs-4 col-xs-offset-4">
+            @Html.HiddenFor(model => model.CoursId)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DateDebut)
+            </div>
+            <div class="editor-field">
+                <input type="date" name="DateDebut" id="DateDebut" class="form-control" />
+                @Html.ValidationMessageFor(model => model.DateDebut)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DateFin)
+            </div>
+            <div class="editor-field">
+                <input type="date" name="DateFin" id="DateFin" class="form-control" />
+                @Html.ValidationMessageFor(model => model.DateFin)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+
+            <p>
+                <input class="btn btn-success col-xs-6 col-xs-offset-3" type="submit" value="Save" />
+            </p>
+           
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-warning" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

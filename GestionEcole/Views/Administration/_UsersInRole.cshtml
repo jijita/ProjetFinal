@@ -1,0 +1,12 @@
+﻿@foreach (var user in Model)
+{
+    <tr>
+        <td>
+            @user
+        </td>
+
+        <td>
+            <button id="deleteBtn" class="btn btn-default" data-user=@user><span class="glyphicon glyphicon-minus"></span></button>
+        </td>
+    </tr>
+}

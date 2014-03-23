@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "AddRole";
+}
+
+<h2>Nouveau Role</h2>
+@using (Html.BeginForm())
+{
+
+    <div class="col-xs-8 col-xs-offset-2">
+        <fieldset>
+
+            <div class="form-group col-xs-8 col-xs-offset-2">
+                @Html.Label("Role", new { @class = "control-label" })
+                @Html.TextBox("role", null, new { @class = "form-control" })
+
+            </div>
+        </fieldset>
+        <div class="form-group col-xs-8 col-xs-offset-2">
+            <a class="btn btn-primary pull-right" href="/Administration"><span class="glyphicon glyphicon-floppy-disk"></span></a>
+        </div>
+
+    </div>
+}

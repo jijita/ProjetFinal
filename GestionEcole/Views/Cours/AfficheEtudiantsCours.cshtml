@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GestionEcole.Models.Etudiant>
+
+@{
+    ViewBag.Title = "AfficheEtudiantsCours";
+
+    GestionEcole.Models.Cours leCours = ViewBag.leCours;
+}
+
+<h2>@leCours.DateDebut to @leCours.DateFin</h2>
+
+
+<div class="col-xs-8 col-xs-offset-2">
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var etudiant in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => etudiant.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => etudiant.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => etudiant.Email)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                          
+                            <a class="btn btn-default" title="Details" href="/Etudiant/Details?id=@etudiant.Id"><span class="glyphicon glyphicon-list"></span></a>
+                            <a class="btn btn-default" title="Presence cours" href="/PresenceCours/Edit?idEtudiant=@etudiant.Id&idCours=@leCours.CoursId"><span class="glyphicon glyphicon-user"></span></a>
+                            <a class="btn btn-default" title="Create evaluation" href="/Evaluation/Create"><span class="glyphicon glyphicon-edit"></span></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
