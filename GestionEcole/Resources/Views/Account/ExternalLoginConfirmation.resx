@@ -117,13 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="h3" xml:space="preserve">
-    <value>Registered external logins</value>
+  <data name="h2" xml:space="preserve">
+    <value>Associate your</value>
   </data>
-  <data name="SuiteTitle" xml:space="preserve">
-    <value>credential from your account</value>
+  <data name="h2Suite" xml:space="preserve">
+    <value>account.</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Remove this</value>
+  <data name="legend" xml:space="preserve">
+    <value>Association Form</value>
+  </data>
+  <data name="p" xml:space="preserve">
+    <value>You've successfully authenticated with</value>
+  </data>
+  <data name="pSuite" xml:space="preserve">
+    <value>. Please enter a user name for this site below and click the Confirm button to finish logging in.</value>
   </data>
 </root>

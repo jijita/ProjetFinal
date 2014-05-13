@@ -22,14 +22,14 @@ namespace GestionEcole.Resources.Views.Account {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class _SetPasswordPartial {
+    public class ExternalLoginConfirmation {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _SetPasswordPartial() {
+        internal ExternalLoginConfirmation() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GestionEcole.Resources.Views.Account {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GestionEcole.Resources.Views.Account._SetPasswordPartial", typeof(_SetPasswordPartial).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GestionEcole.Resources.Views.Account.ExternalLoginConfirmation", typeof(ExternalLoginConfirmation).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,47 @@ namespace GestionEcole.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registered external logins.
+        ///   Looks up a localized string similar to Associate your.
         /// </summary>
-        public static string h3 {
+        public static string h2 {
             get {
-                return ResourceManager.GetString("h3", resourceCulture);
+                return ResourceManager.GetString("h2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to credential from your account.
+        ///   Looks up a localized string similar to account..
         /// </summary>
-        public static string SuiteTitle {
+        public static string h2Suite {
             get {
-                return ResourceManager.GetString("SuiteTitle", resourceCulture);
+                return ResourceManager.GetString("h2Suite", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove this.
+        ///   Looks up a localized string similar to Association Form.
         /// </summary>
-        public static string Title {
+        public static string legend {
             get {
-                return ResourceManager.GetString("Title", resourceCulture);
+                return ResourceManager.GetString("legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;ve successfully authenticated with.
+        /// </summary>
+        public static string p {
+            get {
+                return ResourceManager.GetString("p", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to . Please enter a user name for this site below and click the Confirm button to finish logging in..
+        /// </summary>
+        public static string pSuite {
+            get {
+                return ResourceManager.GetString("pSuite", resourceCulture);
             }
         }
     }

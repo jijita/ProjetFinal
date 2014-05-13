@@ -276,6 +276,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TypeEvaluation.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Account\ExternalLoginConfirmation.fr.Designer.cs">
+      <DependentUpon>ExternalLoginConfirmation.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Account\ExternalLoginConfirmation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExternalLoginConfirmation.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Account\_RemoveExternalLoginsPartial.fr.Designer.cs">
       <DependentUpon>_RemoveExternalLoginsPartial.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -315,11 +325,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_SetPasswordPartial.resx</DependentUpon>
-    </Compile>
-    <Compile Include="_SetPasswordPartial.Designer.cs">
-      <DependentUpon>_SetPasswordPartial.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -554,6 +559,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>TypeEvaluation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\ExternalLoginConfirmation.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExternalLoginConfirmation.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\ExternalLoginConfirmation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExternalLoginConfirmation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\_RemoveExternalLoginsPartial.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_RemoveExternalLoginsPartial.fr.Designer.cs</LastGenOutput>
@@ -583,10 +596,6 @@
       <LastGenOutput>_SetPasswordPartial.fr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\_SetPasswordPartial.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>_SetPasswordPartial.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_SetPasswordPartial.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_SetPasswordPartial.Designer.cs</LastGenOutput>
     </EmbeddedResource>
